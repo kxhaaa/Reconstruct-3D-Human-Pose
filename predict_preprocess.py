@@ -30,7 +30,7 @@ def bbox_from_json(bbox_file):
         scales.append(scale)
     # make sure the bounding box is rectangular
     return centers, scales
-
+#we hope this function will return several img correspond to different bounding box in one img
 def process_image(img_file, bbox_file, openpose_file, input_res=224):
     """Read image, do preprocessing and possibly crop it according to the bounding box.
     If there are bounding box annotations, use them to crop the image.
