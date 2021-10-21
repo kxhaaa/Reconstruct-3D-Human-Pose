@@ -50,9 +50,9 @@ imgs, norm_imgs = process_image('test_img1.jpg',
 # =============================================================================
 # 3, prediction
 # =============================================================================
-for img, norm_img in imgs, norm_imgs:
+for i in range(len(imgs)):
     with torch.no_grad():
-        pred_rotmat, pred_betas, pred_camera = model(norm_img.to(device))
+        pred_rotmat, pred_betas, pred_camera = model(norm_imgs[i].to(device))
         pred_output = smpl(betas=pred_betas, body_pose=pred_rotmat[:,1:], global_orient=pred_rotmat[:,0].unsqueeze(1), pose2rot=False)
         pred_vertices = pred_output.vertices
 
@@ -60,7 +60,7 @@ for img, norm_img in imgs, norm_imgs:
     camera_translation = torch.stack([pred_camera[:,1], pred_camera[:,2], 2*constants.FOCAL_LENGTH/(constants.IMG_RES * pred_camera[:,0] +1e-9)],dim=-1)
     camera_translation = camera_translation[0].cpu().numpy()
     pred_vertices = pred_vertices[0].cpu().numpy()
-    img = img.permute(1,2,0).cpu().numpy()
+    img = imgs[i].permute(1,2,0).cpu().numpy()
 
     # Render parametric shape
     img_shape = renderer(pred_vertices, camera_translation, img)
