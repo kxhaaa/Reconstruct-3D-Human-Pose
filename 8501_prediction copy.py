@@ -76,7 +76,7 @@ for i in range(len(imgs)):
     outfile = 'out_file/'
 
     # Save reconstructions
-    cv2.imwrite(outfile + '_shape.png', 255 * img_shape[:,:,::-1])
-    cv2.imwrite(outfile + '_shape_side.png', 255 * img_shape_side[:,:,::-1])
+    cv2.imwrite(str(i) + outfile + '_shape.png', 255 * img_shape[:,:,::-1])
+    cv2.imwrite(str(i) + outfile + '_shape_side.png', 255 * img_shape_side[:,:,::-1])
 
 
