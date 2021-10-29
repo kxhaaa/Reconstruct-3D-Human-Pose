@@ -11,7 +11,7 @@ This project is our advanced computer vision course group prject. We explore the
 numpy, opencv-python, pyopengl, pyrender, scikit-image, scipy, chumpy, smplx, spacepy, pytorch, torchgeometry, torchvision, tqdm, trimesh
 
 ### Data Requirement
-Model(http://visiondata.cis.upenn.edu/spin/data.tar.gz)
+Model[http://visiondata.cis.upenn.edu/spin/data.tar.gz]
 initial_fits(http://visiondata.cis.upenn.edu/spin/static_fits.tar.gz)
 pretrained_checkpoints(http://visiondata.cis.upenn.edu/spin/model_checkpoint.pt)
 GMM priors(https://github.com/vchoutas/smplify-x/raw/master/smplifyx/prior.py)
