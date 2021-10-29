@@ -3,7 +3,7 @@
 
 ## 1. About The Project
 This project is our advanced computer vision course group prject. We explore the method of SPIN [https://arxiv.org/pdf/1909.12828.pdf](https://arxiv.org/pdf/1909.12828.pdf) and make some improvements. An example of the results is shown as below.
-<img height='150' width='150' src='https://github.com/kxhaaa/Reconstruct-3D-Human-Pose/blob/main/examples/figure3.png'>
+<img height='500' width='150' src='https://github.com/kxhaaa/Reconstruct-3D-Human-Pose/blob/main/examples/figure3.png'>
 
 ## 2. Getting Started
 
