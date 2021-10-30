@@ -9,7 +9,7 @@ This project is our advanced computer vision course group prject. We explore the
 ## 2. Getting Started
 
 ### Pakages Requirement
-numpy, opencv-python, pyopengl, pyrender, scikit-image, scipy, chumpy, smplx, spacepy, pytorch, torchgeometry, torchvision, tqdm, trimesh
+numpy, opencv-python, pyopengl, pyrender, scikit-image, scipy, chumpy, smplx, spacepy, pytorch, torchgeometry, torchvision, tqdm, trimesh, yolox
 
 ### Data Requirement
 Model: [http://visiondata.cis.upenn.edu/spin/data.tar.gz](http://visiondata.cis.upenn.edu/spin/data.tar.gz)
@@ -30,7 +30,7 @@ LSPET: [http://sam.johnson.io/research/lspet.html](http://sam.johnson.io/researc
 
 ### Usage
 Run `python 8501_train_pipline.py` for training, `python 8501_evaluation.py` for evaluation, `python 8501_prediction.py` for prediction with single person, `python 8501_multi_prediction.py` for prediction with multiple people.
-
+Run `python bboxes_by_YOLOX.py` for getting object's boundingbox information
 ## 3. Contribution
 Xianghan Kong - 3D human estimation parts.  
 Yangfei Gao - human detection parts.  
