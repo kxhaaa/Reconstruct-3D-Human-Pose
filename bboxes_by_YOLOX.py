@@ -10,6 +10,7 @@ from yolox.data.data_augment import ValTransform
 from yolox.data.datasets import COCO_CLASSES
 from yolox.exp import get_exp
 from yolox.utils import postprocess
+import json
 
 IMAGE_EXT = [".jpg", ".jpeg", ".webp", ".bmp", ".png"]
 
@@ -154,7 +155,9 @@ def get_bboxes(path = 'assets/test_img2.png', pretrained_model = 'yolox_darknet.
     predictor = Predictor(model, COCO_CLASSES, trt_file, decoder, 'gpu')
     current_time = time.localtime()
     bboxes = image_demo(predictor, path, current_time)
-    print(bboxes)
+    dic_bbox = {'bbox': bboxes}
+    with open("examples/bbox2.json", "w") as f:
+        json.dump(bboxd, f)
     return bboxes
 
 
