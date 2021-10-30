@@ -29,8 +29,14 @@ LSP: [http://sam.johnson.io/research/lsp.html](http://sam.johnson.io/research/ls
 LSPET: [http://sam.johnson.io/research/lspet.html](http://sam.johnson.io/research/lspet.html)
 
 ### Usage
-Run `python main_classic.py`
+Run `python 8501_train_pipline.py` for training, `python 8501_evaluation.py` for evaluation, `python 8501_prediction.py` for prediction with single person, `python 8501_multi_prediction.py` for prediction with multiple people.
 
+## 3. Contribution
+Xianghan Kong - 3D human estimation parts.  
+Yangfei Gao - human detection parts.  
+
+## Acknowledgement
+We also thank Prof. Hongdong Li for ENGN 8501 and all the course tutors.
 
 
 
