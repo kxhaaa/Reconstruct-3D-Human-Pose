@@ -36,7 +36,7 @@ Xianghan Kong - 3D human estimation parts.
 Yangfei Gao - human detection parts.  
 
 ###
-Reference:
+Reference:<br />
 [https://github.com/nkolot/SPINa](https://github.com/nkolot/SPINa)<br />
 [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)<br />
 
