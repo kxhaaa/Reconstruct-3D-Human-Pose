@@ -30,10 +30,15 @@ LSPET: [http://sam.johnson.io/research/lspet.html](http://sam.johnson.io/researc
 
 ### Usage
 Run `python 8501_train_pipline.py` for training, `python 8501_evaluation.py` for evaluation, `python 8501_prediction.py` for prediction with single person, `python 8501_multi_prediction.py` for prediction with multiple people,
- `python bboxes_by_YOLOX.py` for getting object's boundingbox information
+ `python bboxes_by_YOLOX.py` for getting object's boundingbox information, you can get more information by reading these files
 ## 3. Contribution
 Xianghan Kong - 3D human estimation parts.  
 Yangfei Gao - human detection parts.  
+
+###
+Reference:
+[https://github.com/nkolot/SPINa](https://github.com/nkolot/SPINa)<br />
+[https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)<br />
 
 ## Acknowledgement
 We also thank Prof. Hongdong Li for ENGN 8501 and all the course tutors.

@@ -1,11 +1,15 @@
-import argparse
+
+'''
+This interface is using YOLOX-Darknet to inference the bounding box information for SPIN, it will generate the json file
+to store the bounding box information. Or you can also use this inferface to get the list type of the boundingbox information.
+You need to download this file https://pan.baidu.com/s/1WOGfN284hKZnAjYZcnLfHQ by using password:af1f and put the file into the root folder.
+You also need to setup the environment of yolox by https://github.com/Megvii-BaseDetection/YOLOX.
+
+'''
 import os
 import time
-
 import cv2
-
 import torch
-
 from yolox.data.data_augment import ValTransform
 from yolox.data.datasets import COCO_CLASSES
 from yolox.exp import get_exp
@@ -14,6 +18,7 @@ import json
 
 IMAGE_EXT = [".jpg", ".jpeg", ".webp", ".bmp", ".png"]
 
+#load the file under the defined path
 def get_image_list(path):
     image_names = []
     for maindir, subdir, file_name_list in os.walk(path):
@@ -24,7 +29,7 @@ def get_image_list(path):
                 image_names.append(apath)
     return image_names
 
-
+#this class is for inference
 class Predictor(object):
     def __init__(
         self,
@@ -53,7 +58,7 @@ class Predictor(object):
             x = torch.ones(1, 3, test_standard_imgsize[0], test_standard_imgsize[1]).cuda()
             self.model(x)
             self.model = model_trt
-
+    #This is main part for inference. We need to resize the image to put it into the YOLOX model
     def inference(self, img):
         img_info = {"id": 0}
         if isinstance(img, str):
@@ -87,7 +92,8 @@ class Predictor(object):
                 self.nmsthre, class_agnostic=True
             )
         return outputs, img_info
-
+    #after we get the detection results, we should do some filter to these results. We pick the human detecion result
+    #and hight confidence results to return and store.
     def visual(self, output, img_info, cls_conf=0.5):
         ratio = img_info["ratio"]
         img = img_info["raw_img"]
@@ -117,7 +123,7 @@ class Predictor(object):
         return bboxall 
 
 
-def image_demo(predictor, path, current_time):
+def image_inference(predictor, path, current_time):
     if os.path.isdir(path):
         files = get_image_list(path)
     else:
@@ -129,13 +135,8 @@ def image_demo(predictor, path, current_time):
         
     return bboxes
 
-
+# This is the method which can be used by import in orther file, it will store the json file and return the boundingbox result
 def get_bboxes(path = 'assets/test_img2.png', pretrained_model = 'yolox_darknet.pth', exp = get_exp('yolov3.py', None)):
-    #define model name and results storing path
-    model_name = 'yolov3'
-    #results_dir = './results'
-    #os.makedirs(results_dir, exist_ok=True)
-
     model = exp.get_model()
     
     model.cuda()
@@ -154,10 +155,10 @@ def get_bboxes(path = 'assets/test_img2.png', pretrained_model = 'yolox_darknet.
 
     predictor = Predictor(model, COCO_CLASSES, trt_file, decoder, 'gpu')
     current_time = time.localtime()
-    bboxes = image_demo(predictor, path, current_time)
+    bboxes = image_inference(predictor, path, current_time)
     dic_bbox = {'bbox': bboxes}
     with open("examples/bbox2.json", "w") as f:
-        json.dump(bboxd, f)
+        json.dump(dic_bbox, f)
     return bboxes
 
 
