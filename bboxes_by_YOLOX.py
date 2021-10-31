@@ -116,19 +116,22 @@ class Predictor(object):
                 continue
             box = bboxes[i]
             bx = box.tolist()
+            #we should set [x_min, y_min, x_max, y_max] into form [x_min, y_min, weight, height]
             bx[2] = bx[2] - bx[0]
             bx[3] = bx[3] - bx[1]
             bboxall.append(bx)
         
         return bboxall 
 
-
+# This function use the above method to get a whole pipeline of the inference
 def image_inference(predictor, path, current_time):
+    #get whole images list
     if os.path.isdir(path):
         files = get_image_list(path)
     else:
         files = [path]
     files.sort()
+    #Iterative processing of all pictures
     for image_name in files:
         outputs, img_info = predictor.inference(image_name)
         bboxes = predictor.visual(outputs[0], img_info, predictor.confthre)
@@ -156,6 +159,7 @@ def get_bboxes(path = 'assets/test_img2.png', pretrained_model = 'yolox_darknet.
     predictor = Predictor(model, COCO_CLASSES, trt_file, decoder, 'gpu')
     current_time = time.localtime()
     bboxes = image_inference(predictor, path, current_time)
+    #we use json package to store the bounding box information
     dic_bbox = {'bbox': bboxes}
     with open("examples/bbox2.json", "w") as f:
         json.dump(dic_bbox, f)
