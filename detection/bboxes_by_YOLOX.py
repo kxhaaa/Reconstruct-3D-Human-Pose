@@ -1,7 +1,7 @@
 
 '''
 This interface is using YOLOX-Darknet to inference the bounding box information for SPIN, it will generate the json file
-to store the bounding box information. Or you can also use this inferface to get the list type of the boundingbox information.
+to store the bounding box information. Or you can also use this interface to get the list type of the boundingbox information.
 You need to download this file https://pan.baidu.com/s/1WOGfN284hKZnAjYZcnLfHQ by using password:af1f and put the file into the root folder.
 You also need to setup the environment of yolox by https://github.com/Megvii-BaseDetection/YOLOX.
 
