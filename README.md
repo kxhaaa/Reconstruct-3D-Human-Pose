@@ -30,7 +30,7 @@ LSPET: [http://sam.johnson.io/research/lspet.html](http://sam.johnson.io/researc
 
 ### Usage
 Run `python 8501_train_pipline.py` for training, `python 8501_evaluation.py` for evaluation, `python 8501_prediction.py` for prediction with single person, `python 8501_multi_prediction.py` for prediction with multiple people,
- `python bboxes_by_YOLOX.py` for getting object's boundingbox information, you can get more information by reading these files
+ under detection folder run `python bboxes_by_YOLOX.py` for getting object's boundingbox information, you can get more information by reading these files
 ## 3. Contribution
 Xianghan Kong - 3D human estimation parts.  
 Yangfei Gao - human detection parts.  
