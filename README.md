@@ -41,7 +41,11 @@ Reference:<br />
 [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)<br />
 
 ## Acknowledgement
-We also thank Prof. Hongdong Li for ENGN 8501 and all the course tutors.
+We thank [https://github.com/nkolot/SPIN](https://github.com/nkolot/SPIN) for the model and data preprocessiong parts. We thank [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) for human detection parts. And we also thank Prof. Hongdong Li for ENGN 8501 and all the course tutors.
+
+
+
+
 
 
 
